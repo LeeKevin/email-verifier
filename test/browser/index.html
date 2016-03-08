@@ -13,15 +13,40 @@
             }
         };
 
-        var EmailVerifier = window.EmailVerifier(CLIENT_ID.web.client_id);
+        var EmailVerifier = window.EmailVerifier({
+            google: {
+                client_id: CLIENT_ID.web.client_id
+            }
+        });
+        var handleAuthClick = function (event) {
+            event.preventDefault();
+
+            EmailVerifier.checkEmails(document.getElementById('email').value, {
+                sender: 'ebay@ebay.com',
+                verify: function (message) {
+                    var confirmed = false;
+                    for (var i = 0; i < message.payload.parts.length && !confirmed; i++) {
+                        confirmed = message.payload.parts[i].body.size == 656022;
+                    }
+
+                    return confirmed;
+                }
+            }, function (err, result) {
+                if (err) {
+                    throw err;
+                }
+
+                console.log(result);
+            });
+        };
     </script>
 </head>
 <body>
-<div id="authorize-div" style="display: none">
-    <span>Authorize access to Gmail API</span>
-    <!--Button for the user to click to initiate auth sequence -->
-    <button id="authorize-button" onclick="handleAuthClick(event)">
-        Authorize
+<div id="authorize-div">
+    <h2>Email Confirmation</h2>
+    <input id="email" type="text"/>
+    <button onclick="handleAuthClick(event)">
+        Confirm
     </button>
 </div>
 <pre id="output"></pre>

@@ -18,6 +18,7 @@
     "vinyl-buffer": "~1.0.0"
   },
   "dependencies": {
-    "googleapis": "~2.1.7"
+    "googleapis": "~2.1.7",
+    "google-client-api": "~1.0.4"
   }
 }
