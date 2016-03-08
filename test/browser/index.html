@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script src="../../dist/email-verifier.js"></script>
+    <script type="text/javascript">
+        var CLIENT_ID = {
+            "web": {
+                "client_id": "864868644114-3r11crj07ce6i3nq5ortikk18rau61mc.apps.googleusercontent.com",
+                "project_id": "positive-rhino-122623",
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://accounts.google.com/o/oauth2/token",
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "client_secret": "gNHTjaiOEQ9jaPVThsJwA4ev"
+            }
+        };
+
+        var EmailVerifier = window.EmailVerifier(CLIENT_ID.web.client_id);
+    </script>
+</head>
+<body>
+<div id="authorize-div" style="display: none">
+    <span>Authorize access to Gmail API</span>
+    <!--Button for the user to click to initiate auth sequence -->
+    <button id="authorize-button" onclick="handleAuthClick(event)">
+        Authorize
+    </button>
+</div>
+<pre id="output"></pre>
+</body>
+</html>

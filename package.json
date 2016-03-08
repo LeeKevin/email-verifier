@@ -1,0 +1,23 @@
+{
+  "name": "email-verifier",
+  "version": "0.0.1",
+  "description": "Automatically verify email confirmations",
+  "author": "Kevin Lee",
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "~13.0.0",
+    "gulp": "~3.9.1",
+    "gulp-sourcemaps": "~1.6.0",
+    "watchify": "~3.7.0",
+    "gulp-if": "~2.0.0",
+    "gulp-util": "~3.0.7",
+    "gulp-uglify": "~1.5.3",
+    "gulp-notify": "~2.2.0",
+    "vinyl-source-stream": "~1.1.0",
+    "vinyl-buffer": "~1.0.0"
+  },
+  "dependencies": {
+    "googleapis": "~2.1.7"
+  }
+}
